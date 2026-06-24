@@ -77,11 +77,41 @@ describe('Shady Meadows B&B - Challenge QA', () => {
     cy.confirmarReserva()
   })
 
-it('IT Nueva edición', () => {
-    cy.seleccionarFechasCheckinCheckout('27','12')
-    cy.confirmarReserva()
+//Formulario de contacto
+
+
+  it('Agregar datos válidos en Formulario de Contacto', () => {
+    const nombre = 'Juan'
+    cy.completarFormularioContacto(nombre,'juanro@gmail.com','01121062001','Pedro Pascal','Buenas tardes, quiero agradecer el servicio brindado')
+    cy.confirmarMensajeEnviado(nombre)
   })
 
+
+  it('Dejar todos los campos vacíos', () => {
+    cy.get('button').contains('Submit').click()
+    cy.MensajesDeAlertaCamposVacios()
+  })
+
+
+  it('Dejar el campo "nombre" vacío', () => {
+    cy.completarFormularioContacto(' ','juanro@gmail.com','01121062001','Pedro Pascal','Buenas tardes, quiero agradecer el servicio brindado')
+    cy.get('button').contains('Submit').click()
+    cy.get('p').contains('Name may not be blank').should('be.visible')
+  })
+
+
+  it('Agregar caracteres númericos en el campo Nombre', () => {
+    const nombre = '123456'
+    cy.completarFormularioContacto(nombre,'juanro@gmail.com','01121062001','Pedro Pascal','Buenas tardes, quiero agradecer el servicio brindado')
+    cy.confirmarMensajeEnviado(nombre)
+  })
+
+
+  it('Agregar caracteres especiales en el campo Nombre', () => {
+    const nombre = '@@@%%%$$$&&&'
+    cy.completarFormularioContacto(nombre,'juanro@gmail.com','01121062001','Pedro Pascal','Buenas tardes, quiero agradecer el servicio brindado')
+    cy.confirmarMensajeEnviado(nombre)
+  })
 
 
 })
