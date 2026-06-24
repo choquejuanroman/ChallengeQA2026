@@ -77,24 +77,10 @@ describe('Shady Meadows B&B - Challenge QA', () => {
     cy.confirmarReserva()
   })
 
-it('IT Nuevo prueba', () => {
+it('IT Nueva edición', () => {
     cy.seleccionarFechasCheckinCheckout('27','12')
     cy.confirmarReserva()
   })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
