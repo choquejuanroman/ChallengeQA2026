@@ -113,5 +113,8 @@ describe('Shady Meadows B&B - Challenge QA', () => {
     cy.confirmarMensajeEnviado(nombre)
   })
 
+  it('nuevo it', () => {
+    cy.get()
+  })
 
 })
