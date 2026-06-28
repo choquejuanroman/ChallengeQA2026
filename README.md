@@ -21,14 +21,17 @@ cypress/
 │   └── myTestRestfulBooker.cy.js   # Suite principal de tests
 └── support/
     └── commands.js                 # Custom commands reutilizables
+    └── fechaCheckinCheckout.js     # Custom commands reutilizables
+    └── formularioContacto.js       # Custom commands reutilizables
 ```
  
 ## Flujos cubiertos
  
 1. **Navegación del Home Page** — acceso a las secciones Rooms, Booking, Location, Contact y Admin.
 2. **Reserva exitosa como usuario invitado** — selección de habitación, completado del formulario con datos válidos (incluyendo fechas) y confirmación de la reserva.
-3. **Validaciones del formulario de reserva** — envío de formulario vacío y validación de reglas de negocio por campo (Firstname, Lastname, Email, Phone).
-4. **Formulario de contacto** — completado y envío con datos válidos.
+3. **Validaciones del Formulario de reserva** — envío de formulario vacío y validación de reglas de negocio por campo (Firstname, Lastname, Email, Phone).
+4. **Validaciones Formulario de contacto** — envío de formulario vacío y validación de reglas de negocio por campo (Name, Email, Phone, Subject, Message).
+5. **Validaciones Footer** — acceso a los Quick Links y Redes Sociales (Instagram, Twitter, Facebook).
 
 ## Cómo ejecutar los tests
  
@@ -38,9 +41,3 @@ npx cypress open    # modo interactivo
 # o
 npx cypress run     # modo headless
 ```
- 
-## Notas y aclaraciones del equipo
-   
-### Sobre el merge pendiente de una rama
- 
-Quedó una rama sin mergear a `main` porque su integración pisaba datos ya existentes en la rama principal (conflicto que, de resolverse por sobrescritura directa, hubiera implicado perder trabajo ya validado por el equipo). Se decidió no forzar el merge hasta resolver el conflicto de forma controlada, para no comprometer el estado estable de `main`.
