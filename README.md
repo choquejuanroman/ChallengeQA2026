@@ -41,3 +41,13 @@ npx cypress open    # modo interactivo
 # o
 npx cypress run     # modo headless
 ```
+
+## Tecnologías utilizadas
+
+- Cypress
+- JavaScript
+- Node.js
+- Git
+- GitHub
+- Trello
+- Google Sheets
